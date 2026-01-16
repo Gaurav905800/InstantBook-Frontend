@@ -1,0 +1,173 @@
+interface Hotel {
+  id: number;
+  name: string;
+  location: string;
+  rating: number;
+  pricePerNight: number;
+  image: string;
+}
+
+export const hotels: Hotel[] = [
+  {
+    id: 1,
+    name: "The Grand Palace Hotel",
+    location: "Mumbai, India",
+    rating: 4.6,
+    pricePerNight: 7200,
+    image:
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1549068905582896398/original/c5ce34e9-011d-4511-8fad-4dfb6fb6627a.jpeg?im_w=720",
+  },
+  {
+    id: 2,
+    name: "Ocean View Resort",
+    location: "Goa, India",
+    rating: 4.8,
+    pricePerNight: 5400,
+    image:
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1549068905582896398/original/2adc806c-8dfe-4258-8154-90915606b131.jpeg?im_w=1200",
+  },
+  {
+    id: 3,
+    name: "Mountain Escape Lodge",
+    location: "Manali, India",
+    rating: 4.5,
+    pricePerNight: 3800,
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
+  },
+  {
+    id: 4,
+    name: "City Lights Business Hotel",
+    location: "Bangalore, India",
+    rating: 4.3,
+    pricePerNight: 6100,
+    image: "https://images.unsplash.com/photo-1551776235-dde6d4829808",
+  },
+  {
+    id: 5,
+    name: "Royal Heritage Stay",
+    location: "Jaipur, India",
+    rating: 4.7,
+    pricePerNight: 4500,
+    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
+  },
+  {
+    id: 6,
+    name: "Lakeview Serenity Hotel",
+    location: "Udaipur, India",
+    rating: 4.6,
+    pricePerNight: 6700,
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+  },
+  {
+    id: 7,
+    name: "Sunset Paradise Resort",
+    location: "Kerala, India",
+    rating: 4.9,
+    pricePerNight: 8200,
+    image: "https://images.unsplash.com/photo-1501117716987-c8e1ecb2100d",
+  },
+  {
+    id: 8,
+    name: "Himalayan Bliss Retreat",
+    location: "Shimla, India",
+    rating: 4.4,
+    pricePerNight: 4000,
+    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde",
+  },
+  {
+    id: 9,
+    name: "Elite Comfort Suites",
+    location: "New Delhi, India",
+    rating: 4.2,
+    pricePerNight: 5500,
+    image: "https://images.unsplash.com/photo-1555993539-1732a45f78f8",
+  },
+  {
+    id: 10,
+    name: "Coral Reef Beach Resort",
+    location: "Andaman, India",
+    rating: 4.9,
+    pricePerNight: 9000,
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+  },
+  {
+    id: 11,
+    name: "Premium Stay Residency",
+    location: "Chennai, India",
+    rating: 4.3,
+    pricePerNight: 4800,
+    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6",
+  },
+  {
+    id: 12,
+    name: "Urban Heaven Hotel",
+    location: "Hyderabad, India",
+    rating: 4.5,
+    pricePerNight: 5300,
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd",
+  },
+  {
+    id: 13,
+    name: "Green Valley Resort",
+    location: "Munnar, India",
+    rating: 4.7,
+    pricePerNight: 6200,
+    image: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0",
+  },
+  {
+    id: 14,
+    name: "Royal Orchid Resort",
+    location: "Pune, India",
+    rating: 4.4,
+    pricePerNight: 4600,
+    image: "https://images.unsplash.com/photo-1500959737434-9280b0a52f0f",
+  },
+  {
+    id: 15,
+    name: "Golden Crest Hotel",
+    location: "Kolkata, India",
+    rating: 4.2,
+    pricePerNight: 5100,
+    image: "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+  },
+  {
+    id: 16,
+    name: "Blue Lagoon Resort",
+    location: "Lakshadweep, India",
+    rating: 4.8,
+    pricePerNight: 8800,
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+  },
+  {
+    id: 17,
+    name: "Desert Mirage Hotel",
+    location: "Jaisalmer, India",
+    rating: 4.5,
+    pricePerNight: 5400,
+    image: "https://images.unsplash.com/photo-1519823551277-6f6f10f8a4c2",
+  },
+  {
+    id: 18,
+    name: "Snow Peak Lodge",
+    location: "Gulmarg, India",
+    rating: 4.7,
+    pricePerNight: 7000,
+    image: "https://images.unsplash.com/photo-1519817650390-64a93db511aa",
+  },
+  {
+    id: 19,
+    name: "Harborfront Suites",
+    location: "Vizag, India",
+    rating: 4.3,
+    pricePerNight: 4900,
+    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+  },
+  {
+    id: 20,
+    name: "Majestic Crown Hotel",
+    location: "Coimbatore, India",
+    rating: 4.6,
+    pricePerNight: 5800,
+    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
+  },
+];
