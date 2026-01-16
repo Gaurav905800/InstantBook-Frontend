@@ -1,5 +1,4 @@
 import Title from "../components/Title";
-import { roomsData } from "../data/rooms";
 
 function MyBookings() {
   return (
@@ -20,68 +19,6 @@ function MyBookings() {
           <div>Date & Timings</div>
           <div>Payment</div>
         </div>
-
-        {/* Bookings */}
-        {roomsData.map((booking) => (
-          <div
-            key={booking._id}
-            className="grid grid-cols-1 md:grid-cols-[3fr_2fr_1fr] w-full border-b border-gray-300 py-6 gap-4"
-          >
-            {/* Hotel Info */}
-            <div className="flex gap-4">
-              <img
-                src={booking.image}
-                alt={booking.name}
-                className="w-full md:w-44 h-28 rounded shadow object-cover"
-              />
-              <div className="flex flex-col justify-between">
-                <div>
-                  <p className="font-semibold text-lg">
-                    {booking.name}
-                    <span className="text-sm text-gray-500">
-                      {" "}
-                      ({booking.city})
-                    </span>
-                  </p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    {booking.roomType || "Deluxe Room"}
-                  </p>
-                </div>
-
-                <button className="text-sm text-blue-600 hover:underline w-fit">
-                  View details
-                </button>
-              </div>
-            </div>
-
-            {/* Date & Time */}
-            <div className="flex flex-col justify-center text-sm">
-              <p>
-                <span className="font-medium">Check-in:</span> {booking.checkIn}
-              </p>
-              <p>
-                <span className="font-medium">Check-out:</span>{" "}
-                {booking.checkOut}
-              </p>
-              <p className="text-gray-500 mt-1">{1} night stay</p>
-            </div>
-
-            {/* Payment */}
-            <div className="flex flex-col justify-center items-start md:items-end">
-              <p className="font-semibold">₹ {booking.price}</p>
-
-              <span
-                className={`mt-1 text-sm px-3 py-1 rounded-full ${
-                  booking.paymentStatus === "Paid"
-                    ? "bg-green-100 text-green-700"
-                    : "bg-yellow-100 text-yellow-700"
-                }`}
-              >
-                {booking.paymentStatus || "Pending"}
-              </span>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );
