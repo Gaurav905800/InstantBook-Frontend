@@ -295,7 +295,7 @@ const NavBar: React.FC = () => {
               {isDropdownOpen && (
                 <div
                   ref={dropdownRef}
-                  className="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-xl border py-2 z-50"
+                  className="absolute top-full right-0 mt-2 w-48 bg-white text-gray-800 shadow-lg rounded-xl border py-2 z-50"
                   onClick={(e) => e.stopPropagation()} // Prevent click inside from closing
                 >
                   <button
@@ -311,7 +311,8 @@ const NavBar: React.FC = () => {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDropdownAction("/profile");
+                      setIsProfileModalOpen(true);
+                      setIsDropdownOpen(false);
                     }}
                     className="flex items-center gap-3 w-full text-left px-4 py-3 hover:bg-gray-50"
                   >

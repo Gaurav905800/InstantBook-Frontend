@@ -8,34 +8,33 @@ interface ProfileModalProps {
   onClose: () => void;
 }
 
+type TabType = "profile" | "security" | "billing";
+
 const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
   const { user } = useAuth();
-
-  const [activeTab, setActiveTab] = useState<
-    "profile" | "security" | "billing"
-  >("profile");
+  const [activeTab, setActiveTab] = useState<TabType>("profile");
 
   if (!isOpen || !user) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-white w-full max-w-5xl rounded-xl shadow-xl overflow-hidden relative">
-        {/* Close button */}
+    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-0 sm:p-4">
+      <div className="relative bg-white w-full h-full sm:h-auto sm:max-w-5xl rounded-none sm:rounded-xl shadow-xl overflow-hidden">
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+          className="absolute top-4 right-4 z-10 text-gray-400 hover:text-gray-600"
         >
           <X size={20} />
         </button>
 
-        <div className="flex min-h-[500px] p-2">
-          {/* Sidebar */}
-          <aside className="w-64 border-r border-gray-300 bg-white px-4 py-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
+        <div className="flex flex-col md:flex-row min-h-full sm:min-h-[500px]">
+          {/* Sidebar / Top Tabs */}
+          <aside className="md:w-64 border-b md:border-b-0 md:border-r border-gray-300 bg-white px-4 py-4">
+            <h2 className="hidden md:block text-lg font-semibold text-gray-900 mb-6">
               Account
             </h2>
 
-            <nav className="space-y-1">
+            <nav className="flex md:flex-col gap-2 overflow-x-auto">
               <SidebarItem
                 icon={<User size={16} />}
                 label="Profile"
@@ -58,7 +57,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
           </aside>
 
           {/* Content */}
-          <main className="flex-1 px-4 sm:px-8 py-6 overflow-y-auto">
+          <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 overflow-y-auto">
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6">
               {activeTab === "profile" && "Profile details"}
               {activeTab === "security" && "Security"}
@@ -77,6 +76,8 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
 
 export default ProfileModal;
 
+/* ---------------- Sidebar Item ---------------- */
+
 const SidebarItem = ({
   icon,
   label,
@@ -90,14 +91,14 @@ const SidebarItem = ({
 }) => (
   <div
     onClick={onClick}
-    className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium cursor-pointer
+    className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium cursor-pointer whitespace-nowrap transition
       ${
         active
-          ? "bg-slate-200/85 text-gray-900"
-          : "text-gray-600 hover:bg-white/70"
+          ? "bg-slate-200 text-gray-900"
+          : "text-gray-600 hover:bg-gray-100"
       }`}
   >
     {icon}
-    {label}
+    <span>{label}</span>
   </div>
 );
