@@ -15,7 +15,7 @@ import NotFound from "../pages/NotFound";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Settings from "../pages/Settings";
 import AdminDashboard from "../pages/dashboard/AdminDashboard";
-import Mannu from "../pages/mannu";
+import Mannu from "../pages/Mannu";
 
 function AppRoutes() {
   return (
