@@ -1,9 +1,10 @@
 import axios from "axios";
 
 // http://localhost:8080/ for localhost
+// https://instantbook-backend-y20a.onrender.com for production
 
 const apiAuthClient = axios.create({
-  baseURL: "http://localhost:8080/api/auth",
+  baseURL: "https://instantbook-backend-y20a.onrender.com/api/auth",
   headers: { "Content-Type": "application/json" },
 });
 

@@ -1,12 +1,41 @@
 import { Calendar, Search, MapPinHouse } from "lucide-react";
 import { hotels } from "../data/hotels";
+import useSearchDestinationStore from "../store/useSearchDestionationStore";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const {
+    destination,
+    checkInDate,
+    checkOutDate,
+    guests,
+    setDestination,
+    setCheckInDate,
+    setCheckOutDate,
+    setGuests,
+  } = useSearchDestinationStore();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const params = new URLSearchParams({
+      destination,
+      checkIn: checkInDate,
+      checkOut: checkOutDate,
+      guests: String(guests),
+    });
+
+    navigate(`/search?${params}`);
+  };
+
   return (
     <div
       className="relative flex flex-col items-start justify-center px-6 lg:px-24 xl:px-32 text-white min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1474&auto=format&fit=crop')`,
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1474&auto=format&fit=crop')",
       }}
     >
       {/* Overlay */}
@@ -14,10 +43,7 @@ function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-xl mb-6">
-        <div
-          className="bg-[#4780ae] opacity-70 w-fit px-3 py-1 text-center rounded-2xl mb-4
-        "
-        >
+        <div className="bg-[#4780ae] opacity-70 w-fit px-3 py-1 rounded-2xl mb-4">
           <p className="font-medium">The Ultimate Hotel Experience</p>
         </div>
 
@@ -29,17 +55,23 @@ function Hero() {
         </p>
       </div>
 
-      <form className="bg-white text-gray-500 rounded-lg px-6 py-4 z-10  flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto">
+      {/* Search Form */}
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white text-gray-500 rounded-lg px-6 py-4 z-10 flex flex-col md:flex-row gap-4 max-md:mx-auto"
+      >
+        {/* Destination */}
         <div>
           <div className="flex items-center gap-2">
             <MapPinHouse className="w-4 h-4 text-gray-800" />
-            <label htmlFor="destinationInput">Destination</label>
+            <label>Destination</label>
           </div>
           <input
             list="destinations"
-            id="destinationInput"
+            value={destination}
+            onChange={(e) => setDestination(e.target.value)}
             type="text"
-            className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+            className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
             placeholder="Type here"
             required
           />
@@ -50,44 +82,53 @@ function Hero() {
           </datalist>
         </div>
 
+        {/* Check-in */}
         <div>
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-gray-800" />
-            <label htmlFor="checkIn">Check in</label>
+            <label>Check in</label>
           </div>
           <input
-            id="checkIn"
             type="date"
-            className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+            value={checkInDate}
+            onChange={(e) => setCheckInDate(e.target.value)}
+            className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
           />
         </div>
 
+        {/* Check-out */}
         <div>
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-gray-800" />
-            <label htmlFor="checkOut">Check out</label>
+            <label>Check out</label>
           </div>
           <input
-            id="checkOut"
             type="date"
-            className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+            value={checkOutDate}
+            onChange={(e) => setCheckOutDate(e.target.value)}
+            className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
           />
         </div>
 
-        <div className="flex md:flex-col max-md:gap-2 max-md:items-center">
-          <label htmlFor="guests">Guests</label>
+        {/* Guests */}
+        <div className="flex md:flex-col gap-1">
+          <label>Guests</label>
           <input
             min={1}
             max={4}
-            id="guests"
             type="number"
-            className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none  max-w-16"
-            placeholder="0"
+            value={guests}
+            onChange={(e) => setGuests(Number(e.target.value))}
+            className="rounded border border-gray-200 px-3 py-1.5 text-sm outline-none max-w-20"
           />
         </div>
 
-        <button className="flex items-center justify-center gap-1 rounded-md bg-black py-3 px-4 text-white my-auto cursor-pointer max-md:w-full max-md:py-1">
-          <Search className="w-4 h-4 text-white" />
+        {/* Submit */}
+        <button
+          type="submit"
+          className="flex items-center justify-center gap-1 rounded-md bg-black py-3 px-4 text-white my-auto max-md:w-full"
+        >
+          <Search className="w-4 h-4" />
           <span>Search</span>
         </button>
       </form>
