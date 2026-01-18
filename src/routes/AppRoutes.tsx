@@ -15,6 +15,7 @@ import NotFound from "../pages/NotFound";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Settings from "../pages/Settings";
 import AdminDashboard from "../pages/dashboard/AdminDashboard";
+import Mannu from "../pages/mannu";
 
 function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ function AppRoutes() {
           <Route path="/rooms" element={<AllRooms />} />
           <Route path="/hotels" element={<AllHotels />} />
           <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/mannu" element={<Mannu />} />
           <Route path="/hotels/:id/rooms" element={<HotelRooms />} />
           <Route
             path="/hotel/:hotelId/rooms/:roomId"

@@ -1,4 +1,5 @@
 import { Component } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -34,7 +35,7 @@ function Footer() {
                 <a href="#">Contact us</a>
               </li>
               <li>
-                <a href="#">Privacy policy</a>
+                <Link to="/mannu">Mannu button</Link>
               </li>
             </ul>
           </div>
